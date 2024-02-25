@@ -6,7 +6,7 @@ sudo systemctl stop firewalld
 
 # sudo setsebool httpd_can_network_connect 1
 
-sudo hostnamectl set-hostname app-server
+sudo hostnamectl set-hostname appserver
 
 # add the user devops
 sudo useradd devops
@@ -58,12 +58,12 @@ echo '[Unit]
 
         Environment=JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.13.0.8-4.el8_5.x86_64
         Environment='JAVA_OPTS=-Djava.awt.headless=true'
-        Environment=CATALINA_HOME=/opt/apache9.0/
-        Environment=CATALINA_BASE=/opt/apache9.0/
-        Environment=CATALINA_PID=/opt/apache9.0/temp/tomcat.pid
+        Environment=CATALINA_HOME=/opt/appserver/
+        Environment=CATALINA_BASE=/opt/appserver/
+        Environment=CATALINA_PID=/opt/appserver/temp/tomcat.pid
         Environment='CATALINA_OPTS=-Xms512M -Xmx512M'
-        ExecStart=/opt/apache9.0/bin/catalina.sh start
-        ExecStop=/opt/apache9.0/bin/catalina.sh stop
+        ExecStart=/opt/appserver/bin/catalina.sh start
+        ExecStop=/opt/appserver/bin/catalina.sh stop
 
         [Install]
         WantedBy=multi-user.target' > /etc/systemd/system/tomcat.service
