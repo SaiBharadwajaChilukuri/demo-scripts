@@ -6,7 +6,7 @@ sudo systemctl stop firewalld
 
 # sudo setsebool httpd_can_network_connect 1
 
-sudo hostnamectl set-hostname appserver
+# sudo hostnamectl set-hostname appserver
 
 # add the user devops
 sudo useradd devops
@@ -28,7 +28,7 @@ sudo su - devops -c "git config --global user.name 'devops'"
 sudo su - devops -c "git config --global user.email 'devops@gmail.com'"
 
 # Installing Java 11
-#sudo yum install java-11-openjdk-devel.x86_64 -y
+# sudo yum install java-11-openjdk-devel.x86_64 -y
 
 sudo chown -R devops:devops /opt
 
